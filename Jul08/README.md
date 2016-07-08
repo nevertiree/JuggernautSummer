@@ -33,6 +33,21 @@ http://www.iteblog.com/idea/key.php
 1.Apache HttpClient <http://hc.apache.org/>
 2.WebMagic <http://webmagic.io/docs/zh/>
 
+爬虫进阶之路by知乎
+
+1.先从urllib2 入手，写一个最简陋的get；
+2.接触requests；
+3.知道了proxy、user-agent，知道了如何post；
+4.学习Regex；
+5.放下Regex，开始用xpath和BeautifulSoup；
+6.攻克了移动端weibo，卡在网页版的weibo，于是知道了selenium，开始用PhantomJS；
+7.把数据写在CSV中；
+8.把数据写在mysql或者mongoDB中；
+9.发现从头开始写太麻烦，于是用scrapy；
+10.爬虫最有价值的一环是数据的清洗和重塑，从千万数据中提取出有价值的部分并且为自己所用；
+11.更好的分析方法还有机器学习、推荐系统和聚类分析
+
+
 ##4.导入Jar包
 
 InterlliJ IDEA
