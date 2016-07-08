@@ -1,5 +1,9 @@
 # 07月07日
 
+##关键词
+
+解压 编译安装
+
 ##1.Python环境搭建 && Linux安装包管理
 
 >学习Python是为了写爬虫，在搭建Python环境的时候发现系统上自带的Python是2.7版本，为了安装3.4版本顺路学习了Linux的程序安装。
@@ -17,6 +21,10 @@
 `cd /usr/local/src`
 `wget http://www.python.org/ftp/python/3.4.0/Python-3.7.0.tar.bz2`
 `tar -jxvf Python-3.4.0.tar.bz2`
+
+>如果是tar.gz结尾的源码需要用 -zxvf
+
+需要继续学习压缩和解压知识
 
 3.编译源码文件
 
