@@ -25,3 +25,25 @@
 `Categories=Pycharm;`
 
 http://www.iteblog.com/idea/key.php
+
+##2.Gradle
+
+##3.爬虫
+
+1.Apache HttpClient <http://hc.apache.org/>
+2.WebMagic <http://webmagic.io/docs/zh/>
+
+##4.导入Jar包
+
+InterlliJ IDEA
+
+[File]->[Project Structure]->[Dependencies]->[+]->[JARs or directories]
+
+也可以在gradle.build中添加以下代码
+
+`//gradle copyJars以下载类库`
+`task copyJars(type: Copy) `
+`{`
+`    from configurations.runtime`
+`    into 'lib' // 目标位置`
+`}`
