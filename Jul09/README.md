@@ -2,7 +2,7 @@
 
 ##关键词
 
-爬虫 HttpClient OkHttp htmlparser Shell
+爬虫 HttpClient OkHttp htmlparser Shell PHP MVC Smarty
 
 ***
 
@@ -67,3 +67,7 @@ Bash变量的分类：
 ###3.位置参数变量；用来向脚本当中传递参数或数据。变量名不能自定义，变量作用是固定的；
 
 ###4.预定义变量；变量名和作用都是固定的；
+
+##3.PHP MVC视图引擎
+
+PHP视图引擎这里以Smathy为例 [Smarty](http://www.smarty.net/)
