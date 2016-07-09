@@ -18,17 +18,19 @@
 
 >宽度优先爬虫的基本流程：
 
-1.把解析出的链接和 Visited 表中的链接进行比较，若 Visited 表中不存在此链接， 表示其未被访问过;
+>1.把解析出的链接和 Visited 表中的链接进行比较，若 Visited 表中不存在此链接， 表示其未被访问过;
 
-2.把链接放入 TODO 表中;
+>2.把链接放入 TODO 表中;
 
-3.处理完毕后，从 TODO 表中取得一条链接，直接放入 Visited 表中;
+>3.处理完毕后，从 TODO 表中取得一条链接，直接放入 Visited 表中;
 
-4.针对这个链接所表示的网页，继续上述过程。如此循环往复;
+>4.针对这个链接所表示的网页，继续上述过程。如此循环往复;
 
->
+4.[零基础写Java知乎爬虫之获取知乎编辑推荐内容](http://www.jb51.net/article/57197.htm)
 
-4.[零基础写Java知乎爬虫之抓取知乎答案](http://www.jb51.net/article/57203.htm)
+5.[零基础写Java知乎爬虫之抓取知乎答案](http://www.jb51.net/article/57203.htm)
 
-5.[零基础写Java知乎爬虫之将抓取的内容存储到本地](http://www.jb51.net/article/57206.htm)
+6.[零基础写Java知乎爬虫之将抓取的内容存储到本地](http://www.jb51.net/article/57206.htm)
+
+http://gkcx.eol.cn/soudaxue/querySchoolSpecialty.html?zycengci=%E6%9C%AC%E7%A7%91&argspecialtyname=%E5%93%B2%E5%AD%A6&argkeyword=%E5%93%B2%E5%AD%A6&form=form
 
