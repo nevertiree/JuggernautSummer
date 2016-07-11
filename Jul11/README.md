@@ -2,7 +2,7 @@
 
 ##关键词
 
-阿里云 SSH yum servlet Tomcat
+阿里云 SSH yum servlet Tomcat 端口 WEB-INF
 
 ##1.登录服务器
 
@@ -136,11 +136,11 @@ Tomcat -> Container -> Engine -> HOST -> Servlet -> Context -> Web工程
 
 ##7.Servlet
 
-手工编写第一个Servlet程序的大体步骤
+手工编写第一个Servlet程序的大体步骤(可以用idea直接new一个Servlet)
 
 1.继承HttpServlet抽象类 
 
->Servlet接口（init() serivce() & destroy()）--> GenericServlet抽象类（与协议无关）--> HttpServlet抽象类
+>Servlet接口（三个方法对应三个生命周期init() serivce() & destroy()）--> GenericServlet抽象类（与协议无关）--> HttpServlet抽象类
 
 IntelliJ IDEA 
 
@@ -172,8 +172,11 @@ compile(
 
 在File->Project Structure->Modules中生成web.xml文件
 
-##8.Idea
+`<servlet>`与`<servlet-mapping>`
 
+><servlet>标签中可以添加<loadon-startup>标签
+
+##8.Idea
 
 
 ##9.端口查看
@@ -182,6 +185,8 @@ compile(
 
 `netstat -lnp|grep 88`
 
+`lsof -i tcp:8080`
+
 2.查看进程的详细信息
 
 `ps 1777`
@@ -189,3 +194,43 @@ compile(
 3.杀掉进程
 
 `kill -9 1777`
+
+##10.JSP
+
+WEB-INF该目录是web的安全目录，客户端无法访问，只有服务端可以访问的目录。web.xml是项目部署文件。classes文件夹放置*.class。lib存放jar包。
+
+虚拟路径？？
+
+可以修改Tomcat的默认端口
+
+JSP页面元素构成：指令 注释 表达式 脚本 声明  静态内容
+
+###1.指令元素：
+
+1.page指令：通常位于JSP页面的顶端，一个页面可以同时有多个page指令
+
+`<%@ language="java" import="" contentType="text/html" %>`
+
+2.include指令：将外部文件嵌入到当前JSP中并解析
+
+3.taglib指令：设置用户自定义的标签库
+
+###2.注释
+
+1.HTML注释：`<!--html注释-->`客户端在F12中可见
+
+2.JSP注释：`<%--jsp注释--%>`客户端不可见
+
+3.JSP脚本注释：`/* */`
+
+###3.脚本
+
+>在JSP中执行的Java代码 `<% 脚本 %>`
+
+###4.声明
+
+>在JSP页面中定义变量或者方法`<%! 声明 %>`
+
+###5.表达式
+
+`<%= 表达式 %>` 表达式不用以分号结束（而声明和脚本都需要用分号结束）
