@@ -74,6 +74,8 @@ InterlliJ IDEA
 
 也可以在gradle.build中添加以下代码
 
+[gradle资源网站](http://mvnrepository.com/)
+
 `//gradle copyJars以下载类库`
 
 `task copyJars(type: Copy) `

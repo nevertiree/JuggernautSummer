@@ -2,7 +2,7 @@
 
 ##关键词
 
-阿里云 SSH 
+阿里云 SSH yum servlet Tomcat
 
 ##1.登录服务器
 
@@ -116,7 +116,7 @@ mysqld.service is a "virtual" unit – it doesn't exist on the filesystem, it's 
 
 具体技术：
 
->1.Java Servlet作为Web服务的处理入口；
+>1.Java Servlet作为Web服务的处理入口；用户若想用发一个动态web资源(即开发一个Java程序向浏览器输出数据)，需要写一个Java类实现servlet接口，并部署到web服务器中。Servlet可以通过“响应-请求”编程模型来访问。
 
 >2.Java编程编写业务处理程序；
 
@@ -129,3 +129,63 @@ mysqld.service is a "virtual" unit – it doesn't exist on the filesystem, it's 
 >6.Servlet或者Java端生成JSON数据；
 
 可以接触各种框架、EJB技术了。Spring、SpringMVC、Struts、Hibernate，甚至NOSQL、分布式、负载、node.js、模板技术等等。
+
+##6.Tomcat的基本框架
+
+Tomcat -> Container -> Engine -> HOST -> Servlet -> Context -> Web工程
+
+##7.Servlet
+
+手工编写第一个Servlet程序的大体步骤
+
+1.继承HttpServlet抽象类 
+
+>Servlet接口（init() serivce() & destroy()）--> GenericServlet抽象类（与协议无关）--> HttpServlet抽象类
+
+IntelliJ IDEA 
+
+Gradle
+
+`dependencies{  `
+
+`    compile 'org.springframework:spring-webmvc:3.2.5.RELEASE'  `
+
+`    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.0'  `
+
+`    providedCompile 'org.apache.tomcat:tomcat-servlet-api:8.0.0-RC5'  `
+
+`}  `
+
+compile(
+            "org.springframework:spring-context:4.0.5.RELEASE",
+            "org.springframework:spring-web:4.0.5.RELEASE",
+            "org.springframework:spring-webmvc:4.0.5.RELEASE"
+    )
+    testCompile("org.springframework:spring-test:4.0.5.RELEASE")
+    runtime("jstl:jstl:1.2")
+
+2.重写HttoServlet的doGet()和doPost()
+
+在Intellij idea中快速重写父类方法。鼠标左击以确定代码插入的位置，使用快捷键CTRL+O，会弹出窗口让选择某个方法
+
+3.在web.xml中注册Servlet
+
+在File->Project Structure->Modules中生成web.xml文件
+
+##8.Idea
+
+
+
+##9.端口查看
+
+1.88请换为你的apache需要的端口，如：8080
+
+`netstat -lnp|grep 88`
+
+2.查看进程的详细信息
+
+`ps 1777`
+
+3.杀掉进程
+
+`kill -9 1777`
