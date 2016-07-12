@@ -196,7 +196,7 @@ compile(
 
 ##10.JSP
 
-WEB-INF该目录是web的安全目录，客户端无法访问，只有服务端可以访问的目录。web.xml是项目部署文件。classes文件夹放置*.class。lib存放jar包。
+WEB-INF该目录是web的安全目录，客户端无法访问，只有服务端可以访问的目录。web.xml是项目部署文件，该文件用于向Tomcat提供信息。classes文件夹放置*.class。lib存放jar包。
 
 虚拟路径？？
 

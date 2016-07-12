@@ -4,7 +4,7 @@
 
 Spring JavaBean IoC DI JUnit
 
-##1.控制反转Ioc
+##1.控制反转Ioc基本概念
 
 Inversion of Control即意味着将你设计好的对象交给容器控制，IoC有容器来创建及注入依赖对象(反转)，即由Ioc容器来控制对象的创建。有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。
 
@@ -12,13 +12,13 @@ Inversion of Control即意味着将你设计好的对象交给容器控制，IoC
 
 理解好Ioc的关键是要明确“谁控制谁？控制什么？为何是反转？哪些方面反转了？”
 
-谁控制谁？-->IoC容器控制了对象;
+>1.谁控制谁？-->IoC容器控制了对象;
 
-控制什么？-->主要控制了外部资源获取（不只是对象包括比如文件等）;
+>2.控制什么？-->主要控制了外部资源获取（不只是对象包括比如文件等）;
 
-为何是反转？-->容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象;
+>3.为何是反转？-->容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象;
 
-哪些方面反转了-->依赖对象的获取被反转了;
+>4.哪些方面反转了-->依赖对象的获取被反转了;
 
 在IoC语境中，所有的类都在Spring容器中登记，程序告诉Spring自己是什么，自己需要什么，然后Spring会在适当的时候把东西主动给你，也把你交给其他需要你的东西。适当的时间意思是类的创建、销毁都由Spring来控制，Spring在系统运行中动态的向某个对象提供它所需要的其他对象。对象只需要知道需要什么，而不用操心什么时候使用该对象。
 
@@ -31,12 +31,16 @@ IoC对编程带来的最大改变不是从代码上，而是从思想上，发�
 参考文章
 
 1.[谈谈对Spring IoC的理解](http://jinnianshilongnian.iteye.com/blog/1413846)
+
 2.[透透彻彻IoC](http://stamen.iteye.com/blog/1489223/)
+
 3.[Spring IoC原理](http://blog.csdn.net/it_man/article/details/4402245)
+
 4.[IoC模式](http://www.cnblogs.com/qqlin/archive/2012/10/09/2707075.html)
+
 5.[IoC框架](http://blog.csdn.net/wanghao72214/article/details/3969594)
 
-##2.依赖注入Dependency Injection
+##2.依赖注入Dependency Injection基本概念
 
 DI和IoC其实是同一概念的不同描述，DI指组件之间依赖关系由容器在运行期决定，即由容器动态的将某个依赖关系注入到组件之中。DI的目是提升组件重用的频率。
 
@@ -44,23 +48,21 @@ DI和IoC其实是同一概念的不同描述，DI指组件之间依赖关系由�
  
 理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：
  
-1.谁依赖于谁-->程序依赖于IoC容器；
+>1.谁依赖于谁-->程序依赖于IoC容器；
 
-2.为什么需要依赖-->程序需要IoC容器来提供对象需要的外部资源；
+>2.为什么需要依赖-->程序需要IoC容器来提供对象需要的外部资源；
 
-3.谁注入谁-->IoC容器注入应用程序某个程序依赖的对象；
+>3.谁注入谁-->IoC容器注入应用程序某个程序依赖的对象；
 
-4.注入了什么-->某个对象所需要的外部资源（对象、资源、常量数据）。
+>4.注入了什么-->某个对象所需要的外部资源（对象、资源、常量数据）。
 
 那么DI是如何实现的呢？
 
 >Java 1.3之后一个重要特征是反射，它允许程序在运行的时候动态的生成对象、执行对象的方法、改变对象的属性，Spring就是通过反射来实现注入的。
 
-
 参考文章
 
 1.[Inversion of Control Containers and the Dependency Injection pattern](http://www.martinfowler.com/articles/injection.html)
-
 
 ##3.Spring简单参考代码
 
@@ -112,6 +114,25 @@ public interface Animal {
 }
 
 ```
+
+##4.Bean在Spring中的意义
+
+Spring是一个大型的工厂，而Bean就是该工厂的产品，JavaBean是一切配置到IoC容器中的实体。Spring容器能够生产的产品取决于配置文件的配置。
+对于开发人员来说，使用Spring框架所做的就是两件事：开发Bean、配置Bean。
+对于Spring框架来说，它要做的就是根据配置文件来创建Bean实例，并调用Bean实例的方法完成DI。
+
+<beans>标签是Spring配置文件的根元素，<beans>标签可以包含多个<bean>子标签，每个<bean…/>元素可以定义一个Bean实例，每一个Bean对应Spring容器里的一个Java实例定义Bean时通常需要指定两个属性。
+
+
+org.springframework.beans
+
+org.springframework.context(实现保存Bean的对象)
+
+##5.Value Object
+
+Value Object实际上是封装哲学的一种体现，它解决了形参过于冗长、修改形参成本太高的问题。Value Object中主要有构造器、Getter和Setter三类。
+
+##6.MyBatis
 
 ##3.Mysql安装
 
