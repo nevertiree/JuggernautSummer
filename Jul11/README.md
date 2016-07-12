@@ -2,12 +2,11 @@
 
 ##关键词
 
-阿里云 SSH yum servlet Tomcat 端口 WEB-INF
+阿里云 SSH yum servlet Tomcat 端口 WEB-INF JSP web程序的请求响应模式
 
 ##1.登录服务器
 
 `ssh <ip>`
-
 
 ##2.服务器记住密码
 
@@ -234,3 +233,19 @@ JSP页面元素构成：指令 注释 表达式 脚本 声明  静态内容
 ###5.表达式
 
 `<%= 表达式 %>` 表达式不用以分号结束（而声明和脚本都需要用分号结束）
+
+JSP的声明周期？？
+
+JSP内置对象 out request/response session application ...Page pageContext exception config
+
+>JSP内置对象是web容器创建的一组对象，不使用new关键字就可以使用；
+
+##11.请求响应模式
+
+用户发送请求request 服务器给用户响应response
+
+out对象是JspWriter类的实例，是向客户端输出内容的常用对象。println() clear()
+
+###12.SpringMVC
+
+

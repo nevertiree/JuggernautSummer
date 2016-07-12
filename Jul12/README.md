@@ -56,7 +56,69 @@ DI和IoC其实是同一概念的不同描述，DI指组件之间依赖关系由�
 
 >Java 1.3之后一个重要特征是反射，它允许程序在运行的时候动态的生成对象、执行对象的方法、改变对象的属性，Spring就是通过反射来实现注入的。
 
+
 参考文章
 
 1.[Inversion of Control Containers and the Dependency Injection pattern](http://www.martinfowler.com/articles/injection.html)
 
+
+##3.Spring简单参考代码
+
+Main函数
+
+```Java
+
+public static void main(String[] args) {
+        ApplicationContext context = new FileSystemXmlApplicationContext(  
+                "applicationContext.xml");  //引入Spring配置文件
+        Animal animal = (Animal) context.getBean("animal");  //对象实例化
+        animal.say();  } 
+
+```
+
+Spring配置文件applicationContext.xml
+
+```xml
+
+<bean id="animal" class="springframework.test.Cat">  JavaBean的id和所属的class
+        <property name="name" value="kitty" />   该类的属性和属性值
+</bean> 
+
+```
+
+Spring配置文件中的class来自事先编写好的springframework.test.Cat
+
+```Java
+
+public class Cat implements Animal {//该类实现了一个接口，符合Spring面向接口编程的特点
+    private String name;
+
+    public void say() {//实现了接口中的抽象方法
+        System.out.println("I am " + name + "!");   
+    }
+
+    public void setName(String name) {
+        this.name = name;   
+    }
+}
+
+```
+Cat类的来源是Animal接口
+
+```Java
+
+public interface Animal {
+    public void say();//定义了一个抽象方法
+}
+
+```
+
+##3.Mysql安装
+
+[MySql官网](http://dev.mysql.com/downloads/repo/yum/)
+
+把安装的rpm安装--> 会在/etc/yum.repos.d
+
+```shell
+sudo rpm -Uvh platform-and-version-specific-package-name.rpm
+```
