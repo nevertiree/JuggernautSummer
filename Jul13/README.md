@@ -69,12 +69,27 @@ Java的基本结构是class，class的基本结构是object；
 
 [MBG中文介绍](http://generator.sturgeon.mopaas.com/)
 
->MBG是Mybatis代码生成器。它可以生成Mybatis各个版本的代码，可以内省数据库的表（或多个表）然后生成可以用来访问（多个）表的基础对象。这样和数据库表进行交互时不需要创建对象和配置文件。MBG解决了对数据库操作有最大影响的一些简单的CRUD操作。但用户仍然需要对联合查询和存储过程手写SQL和对象。
+>MBG是Mybatis代码生成器。它可以生成Mybatis各个版本的代码，可以内省数据库的表（或多个表）然后生成可以用来访问（多个）表的基础对象。这样和数据库表进行交互时不需要创建对象和配置文件(前提是你已经建立好了数据表，MBG才有可能从你的数据表中读出构造)。MBG解决了对数据库操作有最大影响的一些简单的CRUD操作。但用户仍然需要对联合查询和存储过程手写SQL和对象。
 
 [MBG快速入门指南](http://generator.sturgeon.mopaas.com/quickstart.html)
 
 1.创建并填写适当的配置文件
 
+先把经常使用的常量写入generator.properties
+
+```
+
+jdbc.driverLocation=???/mysql-connector-java-5.1.34.jar
+
+jdbc.driverClass=com.mysql.jdbc.Driver
+
+jdbc.connectionURL=jdbc:mysql://localhost:????/??
+
+jdbc.userId=root
+
+jdbc.password=password
+
+```
 配置文件的基本架构如下
 
 ```xml
@@ -204,8 +219,19 @@ java -jar mybatis-generator-core-x.x.x.jar -configfile \filepath\generatorConfig
 
 [Gradle自动构建地址](http://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core)
 
-3.创建或修改的标准MyBatis配置文件来使用新生成的代码
+3.创建或修改的标准MyBatis配置文件
 
-[运行MBG后的任务](http://generator.sturgeon.mopaas.com/afterRunning.html)
+主要的任务是[创建或修改MapperConfig.xml文件](http://generator.sturgeon.mopaas.com/afterRunning.html)
+
+(目前暂时不考虑)
 
 
+##7.MGB生成文件解析
+
+在generatorConfig.xml的<table/>标签中声明的TableName会在MBG运行后自动生成三种文件：
+
+>1.TableNameMapper.java
+
+>2.TableName.java
+
+>3.TableNameMapper.xml
