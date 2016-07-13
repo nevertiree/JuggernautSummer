@@ -235,3 +235,100 @@ java -jar mybatis-generator-core-x.x.x.jar -configfile \filepath\generatorConfig
 >2.TableName.java
 
 >3.TableNameMapper.xml
+
+##8.MySQL5.6安装
+
+建议在root下操作
+
+1.检查删除之前RPM安装的MySQL
+
+```shell
+rpm -qa | grep MySQL
+
+rpm -qa | grep mysql
+
+rpm -e ???? —nodeps
+
+```
+
+2.检查删除之前YUM安装的MySQL
+
+```shell
+
+yum remove mysql 
+
+```
+
+3.检查删除全部的MySQL
+
+```shell
+
+whereis mysql
+
+rm -rf ????
+
+```
+
+4.开始RPM安装
+
+[RPM下载地址](http://ftp.ntu.edu.tw/pub/MySQL/Downloads/MySQL-5.6/)
+
+```shell
+
+cd /usr/local/src
+
+wget [下载地址](http://ftp.ntu.edu.tw/pub/MySQL/Downloads/MySQL-5.6/MySQL-5.6.15-1.linux_glibc2.5.x86_64.rpm-bundle.tar)
+
+tar -xvf MySQL-5.6.15-1.linux_glibc2.5.x86_64.rpm-bundle.tar
+
+rpm -ivh MySQL-client-5.6.15-1.linux_glibc2.5.x86_64.rpm
+
+rpm -ivh MySQL-server-5.6.15-1.linux_glibc2.5.x86_64.rpm
+
+初始化时，MySQL会自动生成密码并且保存在'/root/.mysql_secret'，需要先`cat /root/.mysql_secret`查看
+
+A RANDOM PASSWORD HAS BEEN SET FOR THE MySQL root USER !You will find that password in '/root/.mysql_secret'.
+
+在没有更改初始密码之前，除了`SET PASSWORD`命令以外不允许其他操作
+
+You must change that password on your first connect,no other statement but 'SET PASSWORD' will be accepted.
+
+Also, the account for the anonymous user has been removed.
+
+In addition, you can run:  /usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test database.
+This is strongly recommended for production servers.
+
+New default config file was created as /usr/my.cnf and
+will be used by default by the server when you start it.
+You may edit this file to change server settings
+
+```
+
+5.启动和配置
+
+```shell
+
+/sbin/chkconfig mysql on  启动mysql
+
+systemctl restart mysql 重启mysql
+
+```
+6.修改密码
+
+```sql
+
+SET PASSWORD = PASSWORD('????')
+
+```
+
+7.安全操作
+
+```shell
+
+/usr/bin/mysql_secure_installation
+
+```
+
+一定要删除test数据库
