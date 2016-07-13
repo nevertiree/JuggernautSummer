@@ -315,6 +315,20 @@ You may edit this file to change server settings
 systemctl restart mysql 重启mysql
 
 ```
+
+在/usr/my.cnf中修改数据库配置
+
+```shell
+
+[mysqld]
+character-set-server = utf8
+collation-server = utf8_general_ci
+default-storage-engine = INNODB
+
+```
+
+稍后登录后用`show variables like 'char%';`查看
+
 6.修改密码
 
 ```sql
