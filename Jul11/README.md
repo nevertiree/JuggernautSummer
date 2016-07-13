@@ -2,7 +2,7 @@
 
 ##关键词
 
-阿里云 SSH yum servlet Tomcat 端口 WEB-INF JSP web程序的请求响应模式
+阿里云 SSH yum servlet Tomcat 端口查看 WEB-INF JSP web程序的请求响应模式
 
 ##1.登录服务器
 
@@ -181,8 +181,6 @@ compile(
 ##9.端口查看
 
 1.88请换为你的apache需要的端口，如：8080
-
-`netstat -lnp|grep 88`
 
 `lsof -i tcp:8080`
 

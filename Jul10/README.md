@@ -2,7 +2,7 @@
 
 ##关键词
 
-Smarty
+Smarty JSON .gitignore
 
 ##1.Smarty
 
@@ -121,6 +121,7 @@ SELECT USER();显示当前用户
 
 ##4.gitignore
 
+如果在编写.gitignore之前已经上传了本地配置以及编译文档，则需要用以下命令删除。
 
 `git rm --cached <added_file_to_undo>`
 

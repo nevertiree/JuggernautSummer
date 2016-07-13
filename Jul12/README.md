@@ -68,6 +68,8 @@ DI和IoC其实是同一概念的不同描述，DI指组件之间依赖关系由�
 
 Main函数
 
+Spring容器集中管理Bean的实例化，Bean实例可以通过BeanFactory的getBean(Stringbeanid)方法得到。BeanFactory是一个工厂，程序只需要获取BeanFactory引用，即可获得Spring容器管理全部实例的引用。程序不需要与具体实例的实现过程耦合。应用在启动时会自动创建Spring容器，组件之间直接以依赖注入的方式耦合，甚至无须主动访问Spring容器本身。
+
 ```Java
 
 public static void main(String[] args) {
@@ -79,6 +81,8 @@ public static void main(String[] args) {
 ```
 
 Spring配置文件applicationContext.xml
+
+配置文件中通过<bean id=”xxxx” class=”xx.XxClass”/>方法配置一个Bean时，需要该Bean实现类中必须有无参构造器。故Spring底层相当于调用了`Xxx = new xx.XxClass()`；
 
 ```xml
 
@@ -115,6 +119,10 @@ public interface Animal {
 
 ```
 
+参考文章
+
+[Bean的基本概念](http://blog.csdn.net/chenssy/article/details/8222744)
+
 ##4.Bean在Spring中的意义
 
 Spring是一个大型的工厂，而Bean就是该工厂的产品，JavaBean是一切配置到IoC容器中的实体。Spring容器能够生产的产品取决于配置文件的配置。
@@ -123,6 +131,17 @@ Spring是一个大型的工厂，而Bean就是该工厂的产品，JavaBean是�
 
 <beans>标签是Spring配置文件的根元素，<beans>标签可以包含多个<bean>子标签，每个<bean…/>元素可以定义一个Bean实例，每一个Bean对应Spring容器里的一个Java实例定义Bean时通常需要指定两个属性。
 
+Id：确定该Bean的唯一标识符，容器对Bean管理、访问、以及该Bean的依赖关系，都通过该属性完成。
+
+Class：指定该Bean的具体实现类(不能使接口)。Spring会直接使用new关键字创建该Bean的实例，故必须提供Bean实现类的类名。
+
+举例
+
+```xml
+
+<bean id="Cat" class="springframework.test.Cat" /> 
+
+```
 
 org.springframework.beans
 
