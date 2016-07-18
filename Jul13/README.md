@@ -295,10 +295,14 @@ You must change that password on your first connect,no other statement but 'SET 
 
 Also, the account for the anonymous user has been removed.
 
+此外在运行`/usr/bin/mysql_secure_installation`完成安全设置
+
 In addition, you can run:  /usr/bin/mysql_secure_installation
 
 which will also give you the option of removing the test database.
 This is strongly recommended for production servers.
+
+在`/usr/my.cnf`是配置文档，以后需要在其中修改配置
 
 New default config file was created as /usr/my.cnf and
 will be used by default by the server when you start it.
@@ -345,4 +349,4 @@ SET PASSWORD = PASSWORD('????')
 
 ```
 
-一定要删除test数据库
+一定要删除test数据库(程序提示YES/NO)
